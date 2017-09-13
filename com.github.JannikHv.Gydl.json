@@ -22,8 +22,8 @@
       "sources": [{
         "type": "git",
         "url": "https://github.com/JannikHv/gydl.git",
-        "branch": "v0.1.0",
-        "commit": "f8fb8423b2138a5bca5e0a5617a5e49e4e5b3516"
+        "branch": "v0.1.1",
+        "commit": "087f25fe28d66ac05d7e3d339a412d1f31c9e371"
       }],
       "post-install": [
         "install -Dm644 ../LICENSE /app/share/licenses/gydl/LICENSE"
@@ -96,8 +96,8 @@
           "build-options": { "env": { "PREFIX": "/app" } },
           "sources": [{
             "type": "archive",
-            "url": "https://github.com/rg3/youtube-dl/releases/download/2017.08.23/youtube-dl-2017.08.23.tar.gz",
-            "sha256": "90c56ce90cd99cefb83607c37b0b641c7e4e1ef37040ad4187425aebcfc800ef"
+            "url": "https://github.com/rg3/youtube-dl/releases/download/2017.09.02/youtube-dl-2017.09.02.tar.gz",
+            "sha256": "699a7ca22243e6a11a3e3a2b4f933c1ec0799d205a58c1eb5b139ee53252d9e9"
           }],
           "cleanup": ["/etc", "/share/zsh"]
         }
