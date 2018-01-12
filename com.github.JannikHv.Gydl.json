@@ -46,8 +46,8 @@
           ],
           "sources": [{
             "type": "archive",
-            "url": "https://ffmpeg.org/releases/ffmpeg-3.3.3.tar.xz",
-            "sha256": "d2a9002cdc6b533b59728827186c044ad02ba64841f1b7cd6c21779875453a1e"
+            "url": "https://ffmpeg.org/releases/ffmpeg-3.4.1.tar.xz",
+            "sha256": "5a77278a63741efa74e26bf197b9bb09ac6381b9757391b922407210f0f991c0"
           }],
           "post-install": [
             "install -Dm644 COPYING.LGPLv3 /app/share/licenses/ffmpeg/COPYING"
@@ -60,8 +60,8 @@
           "build-options": { "env": { "PREFIX": "/app" } },
           "sources": [{
             "type": "archive",
-            "url": "https://github.com/rg3/youtube-dl/releases/download/2017.09.02/youtube-dl-2017.09.02.tar.gz",
-            "sha256": "699a7ca22243e6a11a3e3a2b4f933c1ec0799d205a58c1eb5b139ee53252d9e9"
+            "url": "https://github.com/rg3/youtube-dl/releases/download/2018.01.07/youtube-dl-2018.01.07.tar.gz",
+            "sha256": "280d11c565978d735bae954916390810df1217824bfe704181f1d93ad2f4e1b6"
           }],
           "cleanup": ["/etc", "/man", "/share/zsh"]
         }
