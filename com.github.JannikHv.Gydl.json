@@ -1,7 +1,7 @@
 {
   "app-id": "com.github.JannikHv.Gydl",
   "runtime": "org.gnome.Platform",
-  "runtime-version": "3.24",
+  "runtime-version": "3.28",
   "sdk": "org.gnome.Sdk",
   "command": "gydl",
   "rename-icon": "gydl",
@@ -18,54 +18,51 @@
     "/lib/pkgconfig"
   ],
   "modules": [
+    "shared-modules/lame/lame-3.99.5.json",
+    {
+      "name": "ffmpeg",
+      "config-opts": [
+        "--enable-shared",
+        "--disable-static",
+        "--disable-doc",
+        "--disable-ffplay",
+        "--disable-ffserver",
+        "--disable-devices",
+        "--enable-gnutls",
+        "--enable-libmp3lame",
+        "--enable-libvorbis"
+      ],
+      "sources": [{
+        "type": "archive",
+        "url": "https://ffmpeg.org/releases/ffmpeg-3.4.2.tar.xz",
+        "sha256": "2b92e9578ef8b3e49eeab229e69305f5f4cbc1fdaa22e927fc7fca18acccd740"
+      }],
+      "post-install": [
+        "install -Dm644 COPYING.LGPLv3 /app/share/licenses/ffmpeg/COPYING"
+      ],
+      "cleanup": ["/share/ffmpeg"]
+    },
+    {
+      "name": "youtube-dl",
+      "no-autogen": true,
+      "build-options": { "env": { "PREFIX": "/app" } },
+      "sources": [{
+        "type": "archive",
+        "url": "https://github.com/rg3/youtube-dl/releases/download/2018.04.03/youtube-dl-2018.04.03.tar.gz",
+        "sha256": "a8461fece0b1e66655ad4e47d9dc51935d27d42a0637873acd81e8d86ef1ac5e"
+      }],
+      "cleanup": ["/etc", "/man", "/share/zsh"]
+    },
     {
       "name": "gydl",
       "buildsystem": "meson",
       "sources": [{
         "type": "git",
         "url": "https://github.com/JannikHv/gydl.git",
-        "branch": "v0.1.1",
-        "commit": "087f25fe28d66ac05d7e3d339a412d1f31c9e371"
+        "commit": "18d4819511c668b2e1225aabb3de5bcab48b1c46"
       }],
       "post-install": [
         "install -Dm644 ../LICENSE /app/share/licenses/gydl/LICENSE"
-      ],
-      "modules": [
-        "shared-modules/lame/lame-3.99.5.json",
-        {
-          "name": "ffmpeg",
-          "config-opts": [
-            "--enable-shared",
-            "--disable-static",
-            "--disable-doc",
-            "--disable-ffplay",
-            "--disable-ffserver",
-            "--disable-devices",
-            "--enable-gnutls",
-            "--enable-libmp3lame",
-            "--enable-libvorbis"
-          ],
-          "sources": [{
-            "type": "archive",
-            "url": "https://ffmpeg.org/releases/ffmpeg-3.4.1.tar.xz",
-            "sha256": "5a77278a63741efa74e26bf197b9bb09ac6381b9757391b922407210f0f991c0"
-          }],
-          "post-install": [
-            "install -Dm644 COPYING.LGPLv3 /app/share/licenses/ffmpeg/COPYING"
-          ],
-          "cleanup": ["/share/ffmpeg"]
-        },
-        {
-          "name": "youtube-dl",
-          "no-autogen": true,
-          "build-options": { "env": { "PREFIX": "/app" } },
-          "sources": [{
-            "type": "archive",
-            "url": "https://github.com/rg3/youtube-dl/releases/download/2018.01.07/youtube-dl-2018.01.07.tar.gz",
-            "sha256": "280d11c565978d735bae954916390810df1217824bfe704181f1d93ad2f4e1b6"
-          }],
-          "cleanup": ["/etc", "/man", "/share/zsh"]
-        }
       ]
     }
   ]
