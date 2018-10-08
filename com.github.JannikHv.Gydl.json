@@ -26,7 +26,6 @@
         "--disable-static",
         "--disable-doc",
         "--disable-ffplay",
-        "--disable-ffserver",
         "--disable-devices",
         "--enable-gnutls",
         "--enable-libmp3lame",
@@ -34,8 +33,8 @@
       ],
       "sources": [{
         "type": "archive",
-        "url": "https://ffmpeg.org/releases/ffmpeg-3.4.2.tar.xz",
-        "sha256": "2b92e9578ef8b3e49eeab229e69305f5f4cbc1fdaa22e927fc7fca18acccd740"
+        "url": "https://ffmpeg.org/releases/ffmpeg-4.0.2.tar.gz",
+        "sha256": "a56ef203c14ffab56b97690a1005522cfa0dc2c42c3c40c33c0bec4875b706eb"
       }],
       "post-install": [
         "install -Dm644 COPYING.LGPLv3 /app/share/licenses/ffmpeg/COPYING"
@@ -44,14 +43,14 @@
     },
     {
       "name": "youtube-dl",
-      "no-autogen": true,
-      "build-options": { "env": { "PREFIX": "/app" } },
       "sources": [{
         "type": "archive",
-        "url": "https://github.com/rg3/youtube-dl/releases/download/2018.04.03/youtube-dl-2018.04.03.tar.gz",
-        "sha256": "a8461fece0b1e66655ad4e47d9dc51935d27d42a0637873acd81e8d86ef1ac5e"
+        "url": "https://github.com/rg3/youtube-dl/archive/2018.10.05.tar.gz",
+        "sha256": "86551c40638e562f8b99ac4b497b78d0fd4564ee1642e9358ff39adef8afd183"
       }],
-      "cleanup": ["/etc", "/man", "/share/zsh"]
+      "buildsystem": "simple",
+      "build-commands": ["python3 -mpip install . --prefix=/app --no-index --find-links ."],
+      "cleanup": ["/etc", "/share/doc"]
     },
     {
       "name": "gydl",
