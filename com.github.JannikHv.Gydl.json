@@ -26,7 +26,6 @@
         "--disable-static",
         "--disable-doc",
         "--disable-ffplay",
-        "--disable-ffserver",
         "--disable-devices",
         "--enable-gnutls",
         "--enable-libmp3lame",
@@ -34,8 +33,8 @@
       ],
       "sources": [{
         "type": "archive",
-        "url": "https://ffmpeg.org/releases/ffmpeg-3.4.2.tar.xz",
-        "sha256": "2b92e9578ef8b3e49eeab229e69305f5f4cbc1fdaa22e927fc7fca18acccd740"
+        "url": "https://ffmpeg.org/releases/ffmpeg-4.0.2.tar.xz",
+        "sha256": "a95c0cc9eb990e94031d2183f2e6e444cc61c99f6f182d1575c433d62afb2f97"
       }],
       "post-install": [
         "install -Dm644 COPYING.LGPLv3 /app/share/licenses/ffmpeg/COPYING"
