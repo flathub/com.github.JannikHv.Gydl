@@ -1,0 +1,42 @@
+From e59b0b650ff580144e2de698619e070c86a5bc0d Mon Sep 17 00:00:00 2001
+From: Harald H <harald@fsfe.org>
+Date: Mon, 20 Aug 2018 13:37:26 +0200
+Subject: [PATCH] Added OARS and release info
+
+* Added support for OARS (age content rating)
+* Added release information. Ideally this should be updated by adding a new `<release>` section every time there is a new release. The information will be presented in software centers (like GNOME Software and KDE Discover) and on Flathub. This lets users more easily learn about the latest development for their favorite apps, software centers also reward apps that provide this information by featuring them more prominently.
+Relevant AppStream documentation: https://www.freedesktop.org/software/appstream/docs/chap-Metadata.html#tag-releases
+---
+ data/com.github.JannikHv.Gydl.appdata.xml.in | 19 +++++++++++++++++++
+ 1 file changed, 19 insertions(+)
+
+diff --git a/data/com.github.JannikHv.Gydl.appdata.xml.in b/data/com.github.JannikHv.Gydl.appdata.xml.in
+index a47bb12..d1f27d0 100644
+--- a/data/com.github.JannikHv.Gydl.appdata.xml.in
++++ b/data/com.github.JannikHv.Gydl.appdata.xml.in
+@@ -31,6 +31,25 @@
+       <image>https://raw.githubusercontent.com/JannikHv/gydl/master/images/screenshot-01.png</image>
+     </screenshot>
+   </screenshots>
++  <content_rating type="oars-1.1" />
++  <releases>
++    <release version="0.1.1" date="2017-09-13">
++      <description>
++        <ul>
++          <li>Includes polish and minor fixes to the data files.</li>
++          <li>There is now also support for translations in the build system.</li>
++        </ul>
++      </description>
++    </release>
++    <release version="0.1.0" date="2017-08-25">
++      <description>
++        <ul>
++          <li>This release tags the current state of Gydl so that it can be properly 
++              packaged. Most importantly, it enables uploading to Flathub.</li>
++        </ul>
++      </description>
++    </release>
++  </releases>
+   <update_contact>contact_AT_hembas.se</update_contact>
+   <translation type="gettext">Gydl</translation>
+ </component>

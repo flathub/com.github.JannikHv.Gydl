@@ -37,7 +37,8 @@
         "sha256": "a95c0cc9eb990e94031d2183f2e6e444cc61c99f6f182d1575c433d62afb2f97"
       }],
       "post-install": [
-        "install -Dm644 COPYING.LGPLv3 /app/share/licenses/ffmpeg/COPYING"
+        "install -Dm644 COPYING.LGPLv3 /app/share/licenses/ffmpeg/COPYING",
+        "chrpath -d /app/bin/ffmpeg"
       ],
       "cleanup": ["/share/ffmpeg"]
     },
@@ -55,11 +56,17 @@
     {
       "name": "gydl",
       "buildsystem": "meson",
-      "sources": [{
-        "type": "git",
-        "url": "https://github.com/JannikHv/gydl.git",
-        "commit": "18d4819511c668b2e1225aabb3de5bcab48b1c46"
-      }],
+      "sources": [
+        {
+          "type": "git",
+          "url": "https://github.com/JannikHv/gydl.git",
+          "commit": "18d4819511c668b2e1225aabb3de5bcab48b1c46"
+        },
+        {
+          "type": "patch",
+          "path": "01a8e168fa9d6017bbbf96f3c0d80c436fd1aeed.patch"
+        }
+      ],
       "post-install": [
         "install -Dm644 ../LICENSE /app/share/licenses/gydl/LICENSE"
       ]
