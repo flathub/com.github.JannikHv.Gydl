@@ -1,7 +1,7 @@
 {
   "app-id": "com.github.JannikHv.Gydl",
   "runtime": "org.gnome.Platform",
-  "runtime-version": "3.28",
+  "runtime-version": "3.32",
   "sdk": "org.gnome.Sdk",
   "command": "gydl",
   "rename-icon": "gydl",
@@ -19,6 +19,15 @@
   ],
   "modules": [
     "shared-modules/lame/lame-3.99.5.json",
+    {
+      "name": "chrpath",
+      "sources": [{
+        "type": "archive",
+        "url": "http://deb.debian.org/debian/pool/main/c/chrpath/chrpath_0.16.orig.tar.gz",
+        "sha256": "bb0d4c54bac2990e1bdf8132f2c9477ae752859d523e141e72b3b11a12c26e7b"
+      }],
+      "cleanup": ["*"]
+    },
     {
       "name": "ffmpeg",
       "config-opts": [
@@ -45,13 +54,14 @@
     {
       "name": "youtube-dl",
       "no-autogen": true,
-      "build-options": { "env": { "PREFIX": "/app" } },
+      "no-make-install": true,
+      "make-args": ["youtube-dl", "PYTHON=/usr/bin/python3"],
       "sources": [{
         "type": "archive",
-        "url": "https://github.com/rg3/youtube-dl/releases/download/2018.10.05/youtube-dl-2018.10.05.tar.gz",
-        "sha512": "b581372522d467b3277d81bdc9978352c720d4f33e0d8249cd0271eb1814a153324a5b34608d88d392bb52b1c57d0a6f425baf8377d5609810ef770839586714"
+        "url": "https://github.com/rg3/youtube-dl/archive/2018.10.05.tar.gz",
+        "sha256": "86551c40638e562f8b99ac4b497b78d0fd4564ee1642e9358ff39adef8afd183"
       }],
-      "cleanup": ["/etc", "/man", "/share/zsh"]
+      "post-install": ["install -Dm0755 -t /app/bin youtube-dl"]
     },
     {
       "name": "gydl",
