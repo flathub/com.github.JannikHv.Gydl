@@ -42,8 +42,8 @@
       ],
       "sources": [{
         "type": "archive",
-        "url": "https://ffmpeg.org/releases/ffmpeg-4.0.2.tar.xz",
-        "sha256": "a95c0cc9eb990e94031d2183f2e6e444cc61c99f6f182d1575c433d62afb2f97"
+        "url": "https://ffmpeg.org/releases/ffmpeg-4.1.tar.xz",
+        "sha256": "a38ec4d026efb58506a99ad5cd23d5a9793b4bf415f2c4c2e9c1bb444acd1994"
       }],
       "post-install": [
         "install -Dm644 COPYING.LGPLv3 /app/share/licenses/ffmpeg/COPYING",
@@ -58,8 +58,8 @@
       "make-args": ["youtube-dl", "PYTHON=/usr/bin/python3"],
       "sources": [{
         "type": "archive",
-        "url": "https://github.com/rg3/youtube-dl/archive/2018.10.05.tar.gz",
-        "sha256": "86551c40638e562f8b99ac4b497b78d0fd4564ee1642e9358ff39adef8afd183"
+        "url": "https://github.com/rg3/youtube-dl/archive/2019.03.18.tar.gz",
+        "sha256": "2b1f270b4dfa1306d54e5492400de957a90c54e807633b03f45ae7168a1c0b92"
       }],
       "post-install": ["install -Dm0755 -t /app/bin youtube-dl"]
     },
