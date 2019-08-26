@@ -58,8 +58,8 @@
       "make-args": ["youtube-dl", "PYTHON=/usr/bin/python3"],
       "sources": [{
         "type": "archive",
-        "url": "https://github.com/rg3/youtube-dl/archive/2019.03.18.tar.gz",
-        "sha256": "2b1f270b4dfa1306d54e5492400de957a90c54e807633b03f45ae7168a1c0b92"
+        "url": "https://github.com/ytdl-org/youtube-dl/releases/download/2019.08.13/youtube-dl-2019.08.13.tar.gz",
+        "sha256": "b23d59df96f9dccf34d9c48b65e7bc93532f1ebc4bf71b9285f228bc6086242d"
       }],
       "post-install": ["install -Dm0755 -t /app/bin youtube-dl"]
     },
