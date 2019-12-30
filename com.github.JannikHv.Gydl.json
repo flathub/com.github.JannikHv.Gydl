@@ -47,9 +47,8 @@
       "no-autogen": true,
       "build-options": { "env": { "PREFIX": "/app" } },
       "sources": [{
-        "type": "archive",
-        "url": "https://github.com/rg3/youtube-dl/releases/download/2018.10.05/youtube-dl-2018.10.05.tar.gz",
-        "sha512": "b581372522d467b3277d81bdc9978352c720d4f33e0d8249cd0271eb1814a153324a5b34608d88d392bb52b1c57d0a6f425baf8377d5609810ef770839586714"
+        "type": "git",
+        "url": "https://github.com/ytdl-org/youtube-dl.git"
       }],
       "cleanup": ["/etc", "/man", "/share/zsh"]
     },
