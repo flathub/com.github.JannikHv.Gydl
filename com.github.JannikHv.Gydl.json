@@ -43,6 +43,25 @@
       "cleanup": ["/share/ffmpeg"]
     },
     {
+      "name": "pandoc",
+      "only-arches": [
+        "x86_64"
+          ],
+      "buildsystem": "simple",
+      "build-commands": [
+        "mkdir -p /app/bin",
+        "cp bin/pandoc /app/bin/pandoc",
+        "cp bin/pandoc-citeproc /app/bin/pandoc-citeproc"
+          ],
+     "sources": [
+            {
+         "type": "archive",
+         "url": "https://github.com/jgm/pandoc/releases/download/2.2/pandoc-2.2-linux.tar.gz",
+         "sha256": "06ecd882e42ef9b7390b1c82e1e71b3ea48679181289b9b810a8797825bed8ed"
+            }
+         ]
+     },
+    {
       "name": "youtube-dl",
       "no-autogen": true,
       "build-options": { "env": { "PREFIX": "/app" } },
