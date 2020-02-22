@@ -1,7 +1,7 @@
 {
   "app-id": "com.github.JannikHv.Gydl",
   "runtime": "org.gnome.Platform",
-  "runtime-version": "3.32",
+  "runtime-version": "3.34",
   "sdk": "org.gnome.Sdk",
   "command": "gydl",
   "rename-icon": "gydl",
@@ -19,6 +19,7 @@
   ],
   "modules": [
     "shared-modules/lame/lame-3.99.5.json",
+    "shared-modules/python2.7/python-2.7.json",
     {
       "name": "chrpath",
       "sources": [{
@@ -42,8 +43,8 @@
       ],
       "sources": [{
         "type": "archive",
-        "url": "https://ffmpeg.org/releases/ffmpeg-4.1.tar.xz",
-        "sha256": "a38ec4d026efb58506a99ad5cd23d5a9793b4bf415f2c4c2e9c1bb444acd1994"
+        "url": "https://www.ffmpeg.org/releases/ffmpeg-4.2.1.tar.xz",
+        "sha256": "cec7c87e9b60d174509e263ac4011b522385fd0775292e1670ecc1180c9bb6d4"
       }],
       "post-install": [
         "install -Dm644 COPYING.LGPLv3 /app/share/licenses/ffmpeg/COPYING",
@@ -55,11 +56,11 @@
       "name": "youtube-dl",
       "no-autogen": true,
       "no-make-install": true,
-      "make-args": ["youtube-dl", "PYTHON=/usr/bin/python3"],
+      "make-args": ["youtube-dl", "PYTHON=/usr/bin/python"],
       "sources": [{
         "type": "archive",
-        "url": "https://github.com/ytdl-org/youtube-dl/releases/download/2019.08.13/youtube-dl-2019.08.13.tar.gz",
-        "sha256": "b23d59df96f9dccf34d9c48b65e7bc93532f1ebc4bf71b9285f228bc6086242d"
+        "url": "https://github.com/ytdl-org/youtube-dl/releases/download/2020.02.16/youtube-dl-2020.02.16.tar.gz",
+        "sha256": "abcd19c109125a69915c6ad70fcc6b02411a64427fbb7b91a6b37217dfb9e0c6"
       }],
       "post-install": ["install -Dm0755 -t /app/bin youtube-dl"]
     },
