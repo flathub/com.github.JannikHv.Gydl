@@ -1,7 +1,7 @@
 {
   "app-id": "com.github.JannikHv.Gydl",
   "runtime": "org.gnome.Platform",
-  "runtime-version": "3.28",
+  "runtime-version": "3.34",
   "sdk": "org.gnome.Sdk",
   "command": "gydl",
   "rename-icon": "gydl",
@@ -19,6 +19,16 @@
   ],
   "modules": [
     "shared-modules/lame/lame-3.99.5.json",
+    "shared-modules/python2.7/python-2.7.json",
+    {
+      "name": "chrpath",
+      "sources": [{
+        "type": "archive",
+        "url": "http://deb.debian.org/debian/pool/main/c/chrpath/chrpath_0.16.orig.tar.gz",
+        "sha256": "bb0d4c54bac2990e1bdf8132f2c9477ae752859d523e141e72b3b11a12c26e7b"
+      }],
+      "cleanup": ["*"]
+    },
     {
       "name": "ffmpeg",
       "config-opts": [
@@ -33,8 +43,8 @@
       ],
       "sources": [{
         "type": "archive",
-        "url": "https://ffmpeg.org/releases/ffmpeg-4.0.2.tar.xz",
-        "sha256": "a95c0cc9eb990e94031d2183f2e6e444cc61c99f6f182d1575c433d62afb2f97"
+        "url": "https://www.ffmpeg.org/releases/ffmpeg-4.2.1.tar.xz",
+        "sha256": "cec7c87e9b60d174509e263ac4011b522385fd0775292e1670ecc1180c9bb6d4"
       }],
       "post-install": [
         "install -Dm644 COPYING.LGPLv3 /app/share/licenses/ffmpeg/COPYING",
@@ -45,13 +55,14 @@
     {
       "name": "youtube-dl",
       "no-autogen": true,
-      "build-options": { "env": { "PREFIX": "/app" } },
+      "no-make-install": true,
+      "make-args": ["youtube-dl", "PYTHON=/usr/bin/python"],
       "sources": [{
         "type": "archive",
-        "url": "https://github.com/rg3/youtube-dl/releases/download/2018.10.05/youtube-dl-2018.10.05.tar.gz",
-        "sha512": "b581372522d467b3277d81bdc9978352c720d4f33e0d8249cd0271eb1814a153324a5b34608d88d392bb52b1c57d0a6f425baf8377d5609810ef770839586714"
+        "url": "https://github.com/ytdl-org/youtube-dl/releases/download/2020.02.16/youtube-dl-2020.02.16.tar.gz",
+        "sha256": "abcd19c109125a69915c6ad70fcc6b02411a64427fbb7b91a6b37217dfb9e0c6"
       }],
-      "cleanup": ["/etc", "/man", "/share/zsh"]
+      "post-install": ["install -Dm0755 -t /app/bin youtube-dl"]
     },
     {
       "name": "gydl",
