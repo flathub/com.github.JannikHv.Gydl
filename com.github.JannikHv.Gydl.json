@@ -19,7 +19,6 @@
   ],
   "modules": [
     "shared-modules/lame/lame-3.99.5.json",
-    "shared-modules/python2.7/python-2.7.json",
     {
       "name": "chrpath",
       "sources": [{
@@ -56,11 +55,11 @@
       "name": "youtube-dl",
       "no-autogen": true,
       "no-make-install": true,
-      "make-args": ["youtube-dl", "PYTHON=/usr/bin/python"],
+      "make-args": ["youtube-dl", "PYTHON=/usr/bin/python3"],
       "sources": [{
         "type": "archive",
-        "url": "https://github.com/ytdl-org/youtube-dl/releases/download/2020.02.16/youtube-dl-2020.02.16.tar.gz",
-        "sha256": "abcd19c109125a69915c6ad70fcc6b02411a64427fbb7b91a6b37217dfb9e0c6"
+        "url": "https://github.com/ytdl-org/youtube-dl/archive/2020.02.16.tar.gz",
+        "sha256": "192e813f6d1c6dc92185c70712754894de8dac3867fd158351df53526cbb4d97"
       }],
       "post-install": ["install -Dm0755 -t /app/bin youtube-dl"]
     },
