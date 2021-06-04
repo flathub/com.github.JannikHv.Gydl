@@ -1,7 +1,7 @@
 {
   "app-id": "com.github.JannikHv.Gydl",
   "runtime": "org.gnome.Platform",
-  "runtime-version": "3.34",
+  "runtime-version": "40",
   "sdk": "org.gnome.Sdk",
   "command": "gydl",
   "rename-icon": "gydl",
@@ -9,7 +9,7 @@
   "finish-args": [
      "--socket=wayland",
      "--socket=x11",
-     "--share=ipc",     
+     "--share=ipc",
      "--share=network",
      "--filesystem=xdg-download"
   ],
@@ -19,7 +19,6 @@
   ],
   "modules": [
     "shared-modules/lame/lame-3.99.5.json",
-    "shared-modules/python2.7/python-2.7.json",
     {
       "name": "chrpath",
       "sources": [{
@@ -43,8 +42,8 @@
       ],
       "sources": [{
         "type": "archive",
-        "url": "https://www.ffmpeg.org/releases/ffmpeg-4.2.1.tar.xz",
-        "sha256": "cec7c87e9b60d174509e263ac4011b522385fd0775292e1670ecc1180c9bb6d4"
+        "url": "https://www.ffmpeg.org/releases/ffmpeg-4.4.tar.xz",
+        "sha256": "06b10a183ce5371f915c6bb15b7b1fffbe046e8275099c96affc29e17645d909"
       }],
       "post-install": [
         "install -Dm644 COPYING.LGPLv3 /app/share/licenses/ffmpeg/COPYING",
@@ -56,11 +55,11 @@
       "name": "youtube-dl",
       "no-autogen": true,
       "no-make-install": true,
-      "make-args": ["youtube-dl", "PYTHON=/usr/bin/python"],
+      "make-args": ["youtube-dl", "PYTHON=/usr/bin/python3"],
       "sources": [{
         "type": "archive",
-        "url": "https://github.com/ytdl-org/youtube-dl/releases/download/2020.02.16/youtube-dl-2020.02.16.tar.gz",
-        "sha256": "abcd19c109125a69915c6ad70fcc6b02411a64427fbb7b91a6b37217dfb9e0c6"
+        "url": "https://github.com/ytdl-org/youtube-dl/releases/download/2021.05.16/youtube-dl-2021.05.16.tar.gz",
+        "sha256": "d4012a5ca8d77f8ee30a21532fd1042ed287c0784a5a76fcb74cc33ef76f1afd"
       }],
       "post-install": ["install -Dm0755 -t /app/bin youtube-dl"]
     },
@@ -76,6 +75,10 @@
         {
           "type": "patch",
           "path": "01a8e168fa9d6017bbbf96f3c0d80c436fd1aeed.patch"
+        },
+	{
+          "type": "patch",
+          "path": "appdata-launchable.patch"
         }
       ],
       "post-install": [
