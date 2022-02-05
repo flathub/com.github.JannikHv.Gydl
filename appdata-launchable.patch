@@ -1,0 +1,12 @@
+diff --git a/data/com.github.JannikHv.Gydl.appdata.xml.in b/data/com.github.JannikHv.Gydl.appdata.xml.in
+index d1f27d0..0957967 100644
+--- a/data/com.github.JannikHv.Gydl.appdata.xml.in
++++ b/data/com.github.JannikHv.Gydl.appdata.xml.in
+@@ -22,7 +22,6 @@
+       A big thank you to the developer(s).
+     </p>
+   </description>
+-  <launchable>com.github.JannikHv.Gydl.desktop</launchable>
+   <url type="homepage">https://github.com/JannikHv/gydl</url>
+   <url type="bugtracker">https://github.com/JannikHv/gydl/issues</url>
+   <url type="help">https://github.com/JannikHv/gydl/blob/master/README.md</url>
