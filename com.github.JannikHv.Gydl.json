@@ -1,7 +1,7 @@
 {
   "app-id": "com.github.JannikHv.Gydl",
   "runtime": "org.gnome.Platform",
-  "runtime-version": "44",
+  "runtime-version": "49",
   "sdk": "org.gnome.Sdk",
   "command": "gydl.py",
   "rename-icon": "gydl",
@@ -29,37 +29,14 @@
       "cleanup": ["*"]
     },
     {
-      "name": "ffmpeg",
-      "config-opts": [
-        "--enable-shared",
-        "--disable-static",
-        "--disable-doc",
-        "--disable-ffplay",
-        "--disable-devices",
-        "--enable-gnutls",
-        "--enable-libmp3lame",
-        "--enable-libvorbis"
-      ],
-      "sources": [{
-        "type": "archive",
-        "url": "https://www.ffmpeg.org/releases/ffmpeg-4.4.3.tar.xz",
-        "sha256": "6c5b6c195e61534766a0b5fe16acc919170c883362612816d0a1c7f4f947006e"
-      }],
-      "post-install": [
-        "install -Dm644 COPYING.LGPLv3 /app/share/licenses/ffmpeg/COPYING",
-        "chrpath -d /app/bin/ffmpeg"
-      ],
-      "cleanup": ["/share/ffmpeg"]
-    },
-    {
       "name": "youtube-dl",
       "no-autogen": true,
       "no-make-install": true,
       "make-args": ["youtube-dl", "PYTHON=/usr/bin/python3"],
       "sources": [{
-        "type": "archive",
-        "url": "https://github.com/ytdl-org/youtube-dl/releases/download/2021.12.17/youtube-dl-2021.12.17.tar.gz",
-        "sha256": "9f3b99c8b778455165b4525f21505e86c7ff565f3ac319e19733d810194135df"
+        "type": "git",
+        "url": "https://github.com/ytdl-org/youtube-dl.git",
+        "commit": "956b8c585591b401a543e409accb163eeaaa1193"
       }],
       "post-install": ["install -Dm0755 -t /app/bin youtube-dl"]
     },
