@@ -1,0 +1,52 @@
+From 8bbaf1dad820f30d502352c7cb9263d097fdb1b1 Mon Sep 17 00:00:00 2001
+From: Sabri Ünal <yakushabb@gmail.com>
+Date: Sun, 11 Jan 2026 15:46:52 +0300
+Subject: [PATCH] Fix appdata paper cuts
+
+---
+ data/com.github.JannikHv.Gydl.appdata.xml.in | 15 ++++++++++++---
+ 1 file changed, 12 insertions(+), 3 deletions(-)
+
+diff --git a/data/com.github.JannikHv.Gydl.appdata.xml.in b/data/com.github.JannikHv.Gydl.appdata.xml.in
+index d1f27d0..6d488c6 100644
+--- a/data/com.github.JannikHv.Gydl.appdata.xml.in
++++ b/data/com.github.JannikHv.Gydl.appdata.xml.in
+@@ -1,12 +1,14 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <!-- Copyright 2017 Jannik Hauptvogel -->
+ <component type="desktop-application">
+-  <id>com.github.JannikHv.Gydl.desktop</id>
++  <id>com.github.JannikHv.Gydl</id>
+   <metadata_license>CC0-1.0</metadata_license>
+   <project_license>GPL-2.0</project_license>
+   <name>Gydl</name>
+   <summary>Download content from sites like YouTube</summary>
+-  <developer_name>Jannik Hauptvogel</developer_name>
++  <developer id="io.github.jannikhv">
++    <name>Jannik Hauptvogel</name>
++  </developer>
+   <description>
+     <p>
+       Gydl (Graphical youtube-dl) is a tool that enables downloading of content from
+@@ -22,10 +24,17 @@
+       A big thank you to the developer(s).
+     </p>
+   </description>
+-  <launchable>com.github.JannikHv.Gydl.desktop</launchable>
+   <url type="homepage">https://github.com/JannikHv/gydl</url>
+   <url type="bugtracker">https://github.com/JannikHv/gydl/issues</url>
+   <url type="help">https://github.com/JannikHv/gydl/blob/master/README.md</url>
++  <url type="vcs-browser">https://github.com/JannikHv/gydl</url>
++  <launchable type="desktop-id">com.github.JannikHv.Gydl.desktop</launchable>
++  <provides>
++    <id>com.github.JannikHv.Gydl.desktop</id>
++  </provides>
++  <replaces>
++    <id>com.github.JannikHv.Gydl.desktop</id>
++  </replaces>
+   <screenshots>
+     <screenshot type="default">
+       <image>https://raw.githubusercontent.com/JannikHv/gydl/master/images/screenshot-01.png</image>
+--
+libgit2 1.7.2
+
